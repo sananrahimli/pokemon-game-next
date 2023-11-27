@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+  
+
+* {
+  box-sizing: border-box;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-image: url(/images/bg-body.jpeg);
+  background-size: cover;
+}
+body .logo {
+  filter: drop-shadow(0 0 0.75rem black);
+}
+main {
+  margin-top: 1rem;
+  width: calc(100vw - 3rem);
+  height: auto;
+  min-height: 900px;
+  min-width: 1000px;
+  border-radius: 2rem;
+  padding: 2rem;
+  color: #fff;
+  border: 10px solid gold;
+  box-shadow: inset 0 0 20px rgba(0,0,0,.4);
+}
+
+
+.gameZone .solTeref {
+  border-right: 1px solid rgba(255,255,255,.2);
+  padding-right: 1rem;
+  height: 100%;
+  width: 50%;
+  row-gap: 1.5rem;
+}
+.gameZone .solTeref ul {
+  height: 80%;
+  row-gap: 2rem;
+}
+.gameZone h2 {
+    width: 100%;
+    font-size: 3rem;
+    height: auto;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: 700;
+}
+.gameZone .sagTeref {
+  padding-left: 1rem;
+  width: 50%;
+  height: 100%;
+  row-gap: 1.5rem;
+}
+
+.gameZone .sagTeref ul {
+  height: 80%;
+  row-gap: 2rem;
+}
+.gameZone ul li {
+  width: 45%;
+  height: 350px;
+  border-radius: 1.5rem;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  border: 7px solid gold;
+  cursor: pointer; 
+  transition: all .5s;
+}
+
+.gameZone ul li:hover {
+  transform: scale(1.05);
+}
+.gameZone ul li .type {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 9;
+  width: 80px;
+  height: 60px;
+  background-color: gold;
+  border-bottom-right-radius: 80%;
+  box-shadow: 12px 14px 15px rgba(0,0,0,.4);
+  padding: 0.3rem;
+  line-height: 1;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #333;
+}
+  .gameZone ul li .type span {opacity: .5;font-size: .9rem;font-weight: 400;}
+.gameZone ul li .picture {
+  width: 100%;
+  height: 280px;
+  background-image: url(/images/bg_pokemon.jpg);
+  background-size: cover;
+
+  border-radius: 1rem;
+}
+.gameZone ul li .picture img {
+  position: absolute;
+  left: 50%;
+  bottom: 5px;
+  transform: translateX(-50%);
+  filter: drop-shadow(0 5px 0.75rem black);
+  transition: transform 0.5s;
+  width: 80%;
+}
+.gameZone ul li:hover img {
+  animation: pictureAnimation 6s ease 0s infinite normal forwards;
+}
+@keyframes pictureAnimation {
+  0%,
+	50%,
+	100% {
+    transform: translateX(-50%) translateY(0)
+    }
+  25%,
+	65% {
+    transform: translateX(-50%) translateY(-10px)
+    }
+  
+}
+
+.gameZone ul li .name {
+  width: 100%;
+  height: 70px;
+  background: gold;
+  border-radius: 1rem;
+  margin: 0 auto;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.fixed_bottom {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 10%;
+  background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%);
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.fixed_bottom  button {
+  width: 250px;
+  height: 70px;
+  background-image: url(/images/start-button.svg);
+  background-size: 100% 100%;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #222;
+}
+
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+  background-color: rgba(0,0,0,.8);
+  visibility: hidden;
+  opacity: 0;
+  z-index: -1;
+  transition: all 1s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+  .modal.show {
+    visibility: visible;
+    opacity: 1;
+    z-index: 99;
+  }
+
+  .modal span.close {
+    width: 45px;
+    height: 45px;
+    border-radius: 100%;
+    font-size: 3rem;
+    font-weight: 700;
+    background-color: #fff;
+    color: #222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 5px 10px #000;
+    }
+.modal-content {
+  width: 400px;
+  height: 400px;
+  background-size: 100% 100%;
+  padding: 43px 90px;
+  font-size: 2rem;
+  text-align: center;
+  color: #222;
+  font-weight: 700;
+}
+.modal-content.win {
+  background-image: url(/images/win.svg)
+}
+.modal-content.lose {
+  background-image: url(/images/lose.svg)
+}
+.modal-content.error {
+  background-image: url(/images/lose.svg)
+}
+.modal-content h2.title {
+  font-size: 1.8rem;
+  color: #fff; 
+  margin-bottom: 1.5rem; 
+}
+  .modal-content .total {
+    font-size: 1.4rem;
+    margin-top: 1rem;
+    display: none
+    }
+  .modal-content.win .total, .modal-content.lose .total {display: block}
